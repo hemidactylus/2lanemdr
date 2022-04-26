@@ -1,0 +1,8 @@
+{
+  "sources": {
+    "_src_readme.md": {
+      "short": "readme.md",
+      "long": "long_readme.md"
+    }
+  }
+}
