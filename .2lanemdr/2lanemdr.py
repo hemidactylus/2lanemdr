@@ -37,7 +37,7 @@ def mkFiles(src, prescr, warner, errorer):
     Return a list with the path to all files created
     """
     inContents = [
-        li.strip()
+        li.replace('\n', '')
         for li in open(src).readlines()
     ]
     # open files
@@ -105,20 +105,20 @@ if __name__ == '__main__':
         #
         for origF, dests in files.items():
 
-            def warner(msg, lineno):
+            def warner(msg, intLineno):
                 wmsg = MESSAGE_TEMPLATE.format(
                     kind='WARNING',
                     filename=origF,
-                    linenumber=lineno,
+                    linenumber=intLineno+1,
                     message=msg,
                 )
                 print(wmsg)
 
-            def errorer(msg, lineno):
+            def errorer(msg, intLineno):
                 emsg = MESSAGE_TEMPLATE.format(
                     kind='ERROR',
                     filename=origF,
-                    linenumber=lineno,
+                    linenumber=intLineno+1,
                     message=msg,
                 )
                 print(emsg)
